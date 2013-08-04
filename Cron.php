@@ -249,13 +249,13 @@ class Cron
 	* 
 	* @param int $signo the signal in question (SIGTERM, SIGHUP, etc)
 	* @param int $idx the index of the assigned signal callback handler you wish to remove - null for all handlers in a given signal
-	* @return bool
+	* @return Cron This object (fluent interface)
 	*/
 	public function unBindSignal($signo, $idx=null)
 	{
 		if (!isset($this->sigHandlers[$signo]))
 		{
-			return true;
+			return $this;
 		}
 
 		if ( is_null($idx) )
@@ -267,7 +267,7 @@ class Cron
 			unset($this->sigHandlers[$signo][$idx]);
 		}
 
-		return true;
+		return $this;
 	}
 	
 	/**
@@ -321,7 +321,7 @@ class Cron
 	
 	/**
 	* Try to unlock any previous lock that was applied to this file
-	* 
+	* @return bool
 	*/
 	public function unlock()
 	{

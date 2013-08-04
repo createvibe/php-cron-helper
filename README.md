@@ -12,6 +12,12 @@ Usage
 
 require_once 'Cron.php';
 
+// binding sig handlers?
+$signalId = Cron::singleton->bindSignal(\SIGTERM, function($signo)
+{
+	print 'Got termination signal!';
+});
+
 // attempt to acquire a lock
 if (!Cron::singleton()->lock())
 {
