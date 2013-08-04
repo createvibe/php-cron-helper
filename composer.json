@@ -1,0 +1,22 @@
+{
+	"name":"am/php-cron-helper",
+	"description":"PHP Cron Helper",
+	"autoload":{
+		"psr-0":{
+			"":"/"
+		}
+	},
+	"repositories":[],
+	"require":{
+		"php":">=5"
+	},
+	"scripts":{},
+	"config":{
+		"bin-dir":"bin"
+	},
+	"minimum-stability":"dev",
+	"extra":{
+		"symfony-app-dir":"app",
+		"symfony-web-dir":"web"
+	}
+}
