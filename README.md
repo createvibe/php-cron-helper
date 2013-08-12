@@ -20,7 +20,7 @@ if (!Cron::singleton()->lock())
 }
 
 // binding sig handlers?
-$signalId = Cron::singleton->bindSignal(\SIGTERM, function($signo)
+$signalId = Cron::singleton()->bindSignal(\SIGTERM, function($signo)
 {
 	print 'Got termination signal!';
 });
